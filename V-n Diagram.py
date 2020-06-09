@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 
 #Defining velocities and load factors
 Vstall = 14                     # [m/s] SAVED-P&P-PERF-07
-Vmvr   = sqrt(3.8 * Vstall**2)      # [m/s] from n = V**2 / Vstall**2
-Vc     = 28                     # [m/s] SAVED-P&P-PERF-01
+Vmvr   = sqrt(3.8 * Vstall**2)  # [m/s] from n = V**2 / Vstall**2
+Vc     = 22.3                   # [m/s] SAVED-P&P-PERF-01
 Vd     = Vc * 1.4               # [m/s] REF TO Luis Parada Thesis Tecnico for factor of 1.2, OR CS-VLA 335 b) 2) for 1.4
 Vneg   = sqrt(1.52*Vstall**2)   # [m/s] 
-nmin   = -1.52                  # nmax * 0.4 REF TO Luis Parada Thesis Tecnico for factor of 0.4
 nmax   = 3.8                    # max from SMM dept, from certification CS-LUAS.337
+nmin   = -1*0.4*nmax            # nmax * 0.4 REF TO Luis Parada Thesis Tecnico for factor of 0.4
 
 #Setting up lists for plots
 Vlist   = []
@@ -88,13 +88,6 @@ for n in n6list:
     V = Vstall
     V6list.append(V)
 
-## Cruise Speed
-n7list = np.arange(nmin,nmax,0.001)
-
-for n in n7list:
-    V = Vc
-    V7list.append(V)
-
 ## Pre-dive speed limit
 V8list = [Vc,Vd]
 n8list = [nmin,0]
@@ -158,6 +151,13 @@ V15list = [Vd,Vd]                       #Vertical Middle Connection Line
 n15list = [n11list[-1],n12list[-1]]
 
 
+## Cruise Speed
+n7list = np.arange(nmin,n9list[-1]+0.001,0.001)
+
+for n in n7list:
+    V = Vc
+    V7list.append(V)
+
 
 ## -------- Plotting and formatting the V-n Diagram -------- ##
 
@@ -166,8 +166,8 @@ plt.plot(V3list,n3list, label="(Negative) Stall Limit")
 plt.plot(V2list,n2list, label="Structural Limit, $n_{max}$=3.8")
 plt.plot(V4list,n4list, label="(Negative) Structural Limit, $n_{min}$=-1.52")
 plt.plot(V6list,n6list, color="grey", linestyle="dashed", label="Stall speed, $V_{stall}$=14$m/s$")
-plt.plot(V7list,n7list, color="grey", linestyle="dashdot", label="Cruise speed, $V_c$=28$m/s$")
-plt.plot(V5list,n5list, label="Dive speed, $V_d$=33.6$m/s$")
+plt.plot(V7list,n7list, color="grey", linestyle="dashdot", label="Cruise speed, $V_c$=22.3$m/s$")
+plt.plot(V5list,n5list, label="Dive speed, $V_d$=31.2$m/s$")
 plt.plot(V8list,n8list)
 plt.plot(V9list,n9list, color="black", linestyle="dotted", label="Gust Load Envelope")
 plt.plot(V10list,n10list, color="black", linestyle="dotted")
