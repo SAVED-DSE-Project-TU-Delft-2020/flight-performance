@@ -14,24 +14,24 @@ nmin   = -1.52                  # nmax * 0.4 REF TO Luis Parada Thesis Tecnico f
 nmax   = 3.8                    # max from SMM dept, from certification CS-LUAS.337
 
 #Setting up lists for plots
-Vlist  = []
-nlist  = []
-V2list = []
-n2list = []
-V3list = []
-n3list = []
-V4list = []
-n4list = []
-V5list = []
-n5list = []
-V6list = []
-n6list = []
-V7list = []
-n7list = []
-V8list = []
-n8list = []
-V9list = []
-n9list = []
+Vlist   = []
+nlist   = []
+V2list  = []
+n2list  = []
+V3list  = []
+n3list  = []
+V4list  = []
+n4list  = []
+V5list  = []
+n5list  = []
+V6list  = []
+n6list  = []
+V7list  = []
+n7list  = []
+V8list  = []
+n8list  = []
+V9list  = []
+n9list  = []
 V10list = []
 n10list = []
 V11list = []
@@ -113,11 +113,11 @@ rho = 1.16727                       # [kg/m3] density at cruise altitude of 500m
 rhoSL = 1.225                       # [kg/m3] density at sea level
 uc  = 15.2                          # derived gust velocity for cruise speed (CS-VLA 333 (c) (1) (i) )
 ud  = 7.62                          # derived gust velocity for dive speed (CS-VLA 333 (c) (1) (ii) )
-clalpha = 2*pi                      # C_L_alpha of the wing from Aero department                                        <-----------  ##  UPDATE!  ##
+clalpha = 4.3299                    # C_L_alpha of the wing from Aero department                                        <-----------  ##  UPDATE!  ##
 WS = 121.26                         # [N/m2] wing loading (W/S) from SAVED-WING-AERO-A01
 g = 9.80665                         # [m/s2] acceleration due to gravity
 MS = WS / g                         # [kg/m2] wing loading (M/S) used in CS-VLA 341
-chord = 0.6235                      # [m] average of root chord 0.76 and tip chord with sweep 20deg
+chord = 0.47                        # [m] mean geometric chrod = surface area / wingspan = 1.41/3
 mug = (2*MS) / (rho*chord*clalpha)  # "aeroplane mass ratio" from CS-VLA 341
 Kg = (0.88*mug)/(5.3+mug)           # gust alleviation factor
 
@@ -185,4 +185,5 @@ plt.show()
 
 
 ### -----  TO DO: UPDATE SCRPT  -------  ###
-### Update clalpha and chord
+### Update clalpha and chord --> DONE
+
